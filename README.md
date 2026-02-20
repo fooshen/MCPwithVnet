@@ -22,3 +22,11 @@ Traffic flows entirely through:
 - Private DNS zones
 - VNet‑to‑VNet routing (if needed)
 
+## Pre-requisites / What you will need
+- Visual Studio Code (optional, to create and deploy our sample MCP server)
+- A Power Platform Environment
+- An Azure Subscription in the same tenant as your Power Platform
+- PowerShell (optional - to help troubleshoot)
+
+## Content
+
