@@ -13,9 +13,9 @@ Modern agents increasingly need access to internal systems—inventory, finance,
 By placing the MCP server behind a private endpoint and using Power Platform’s VNet support, we get:
 
 1. Zero Public Exposure
--Your MCP server never touches the public internet.
--Only Power Platform’s managed runtime—via your delegated subnet—can reach it.
-
+- Your MCP server never touches the public internet.
+- Only Power Platform’s managed runtime—via your delegated subnet—can reach it.
+ 
 2. Enterprise‑Grade Network Isolation
 Traffic flows entirely through:
 - Private endpoints
