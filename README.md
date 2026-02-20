@@ -1,4 +1,4 @@
-# MCPwithVnet
+# Connecting Copilot Studio to an MCP Server over vnet
 This guide walks through how to build, secure, and integrate a Model Context Protocol (MCP) server hosted on Azure Functions with Copilot Studio—specifically when the function app is placed behind a private endpoint and accessed through Power Platform’s VNet connectivity. It provides a practical, end‑to‑end blueprint for teams that want to expose internal APIs as secure, governed tools inside Copilot Studio.
 
 ## What is in this guide
