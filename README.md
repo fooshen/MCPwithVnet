@@ -1,13 +1,13 @@
 # MCPwithVnet
 This guide walks through how to build, secure, and integrate a Model Context Protocol (MCP) server hosted on Azure Functions with Copilot Studio—specifically when the function app is placed behind a private endpoint and accessed through Power Platform’s VNet connectivity. It provides a practical, end‑to‑end blueprint for teams that want to expose internal APIs as secure, governed tools inside Copilot Studio.
 
-##What is in this guide:
+## What is in this guide
 
 - Deploying a sample MCP server in Azure Functions
 - Securing it with a private endpoint
 - Enabling Power Platform to reach it through a delegated VNet
 
-##Why This Matters
+## Why This Matters
 Modern agents increasingly need access to internal systems—inventory, finance, operations, knowledge bases, line‑of‑business APIs. But these systems often live inside VNets,  behind private endpoints. Exposing them publicly is not an option.
 
 By placing the MCP server behind a private endpoint and using Power Platform’s VNet support, we get:
