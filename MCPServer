@@ -1,0 +1,9 @@
+# Deploying a sample MCP server
+In this example, we will build and deploy a very basic HelloWorld MCP server using C# into Azure Function using Visual Studio Code. You can skip this part if you already have an MCP server to work with.
+
+## You will need
+- Visual Studio Code
+- Azure subscription
+
+### Create a simple Hello World MCP server using C#
+1. Launch Visual Studio Code. 
