@@ -14,8 +14,10 @@ You can skip this part if you already have an MCP server to work with, or are us
 3. Create a new folder "HelloWorldMCPServer".
 4. Select "C#", then ".NET 8.0 Isolated LTS" for runtime, and "McpToolTrigger" for project template.
    <img width="1361" height="261" alt="image" src="https://github.com/user-attachments/assets/eb3be78a-13de-4721-b540-7e524db9db55" />
+   
    > [!NOTE]
    > This uses the Azure Functions MCP Extension project scaffolding that sets up everything we need to create an MCP tool endpoint.
+   
 5. Provide a function name - let's go with "SayHello". Give it a namespace - I am using fsdemo here. 
 
  
