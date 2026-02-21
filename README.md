@@ -1,11 +1,12 @@
 # Connecting Copilot Studio to an MCP Server over vnet
-This guide walks through how to build, secure, and integrate a Model Context Protocol (MCP) server hosted on Azure Functions with Copilot Studio—specifically when the function app is placed behind a private endpoint and accessed through Power Platform’s VNet connectivity. It provides a practical, end‑to‑end blueprint for teams that want to expose internal APIs as secure, governed tools inside Copilot Studio.
+This guide walks through how Copilot Studio can securely connect to an MCP server that sits behind a private endpoint inside an Azure Virtual Network. 
+Microsoft Copilot Studio is built directly on the Microsoft Power Platform, which means it inherits the same enterprise‑grade security, governance, compliance, and networking controls that global organizations have already validated at scale. When Copilot Studio connects to MCP servers, it does so through Power Platform’s Custom Connector framework. MCP defines the protocol and tool semantics, but the transport, authentication, and governance all run through the connector layer. As a result, every MCP tool benefits from the same hardened controls enterprises rely on today: secure authentication flows, network isolation, DLP enforcement, ALM pipelines, and centralized admin governance. While this guide illustrates connecting to an MCP server, the same steps applies when configuring connection to any supported connectors in Power Platform, and applies equally to Power Apps and Power Automate as well.
 
-## What is in this guide
-
-- Deploying a sample MCP server in Azure Functions
-- Securing it with a private endpoint
-- Enabling Power Platform to reach it through a delegated VNet
+## Reference documentations
+- [Power Platform Virtual Network support Overview](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview)
+- [Power Platform Virtual Network support Whitepaper](https://learn.microsoft.com/en-us/power-platform/admin/virtual-network-support-whitepaper)
+- [Power Platform Virtual Network support Set Up Guide](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-setup-configure)
+- [Troubleshooting tips](https://learn.microsoft.com/en-us/troubleshoot/power-platform/administration/virtual-network)
 
 ## Why This Matters
 Modern agents increasingly need access to internal systems—inventory, finance, operations, knowledge bases, line‑of‑business APIs. But these systems often live inside VNets,  behind private endpoints. Exposing them publicly is not an option.
@@ -21,6 +22,14 @@ Traffic flows entirely through:
 - Private endpoints
 - Private DNS zones
 - VNet‑to‑VNet routing (if needed)
+
+## What is in this guide
+
+- Deploying a sample MCP server in Azure Functions
+- Securing it with a private endpoint
+- Enabling Power Platform to reach it through a delegated VNet
+
+
 
 ## Pre-requisites / What you will need
 - Visual Studio Code (optional, to create and deploy our sample MCP server)
