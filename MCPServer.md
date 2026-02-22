@@ -17,7 +17,7 @@ For examples on writing MCP Servers on Azure Functions, you may refer to this ar
    <img width="1361" height="261" alt="image" src="https://github.com/user-attachments/assets/eb3be78a-13de-4721-b540-7e524db9db55" />
    
    > [!NOTE]
-   > This uses the Azure Functions MCP Extension project scaffolding that sets up everything we need to create an MCP tool endpoint.
+   > This uses the Azure Functions MCP Extension project scaffolding that sets up everything we need to create an MCP tool endpoint.Read more about this [https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-mcp?pivots=programming-language-csharp](here). View more examples [https://github.com/microsoft/mcp-dotnet-samples](here).
    
 5. Provide a function name - let's go with "SayHello". Give it a namespace - I am using fsdemo here. 
 
