@@ -48,7 +48,7 @@ Traffic flows entirely through:
 > In this example, my Environment is in Australia Southeast.
 > Understand that Power Platform Environment can be in a **geography** that is mapped to one or more **Azure Regions**. For example, if your Environment is in Australia geo, your region can be either in Australia East or Australia Southeast. See [here](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview#supported-regions) for a list of mapped regions. If you ever need to move your existing Environment to another region, contact your Microsoft Support for assistance.
 >
-> If you need to specify the region when creating a new Environment, you may do so using PowerShell [New-AdminPowerAppEnvironment](https://learn.microsoft.com/en-us/powershell/module/microsoft.powerapps.administration.powershell/new-adminpowerappenvironment) or using [Power Platform API](https://learn.microsoft.com/en-us/rest/api/power-platform/).
+> If you need to specify the region when creating a new Environment, you may do so using PowerShell [New-AdminPowerAppEnvironment](https://learn.microsoft.com/en-us/powershell/module/microsoft.powerapps.administration.powershell/new-adminpowerappenvironment) with the [RegionName](https://learn.microsoft.com/en-us/powershell/module/microsoft.powerapps.administration.powershell/new-adminpowerappenvironment?view=pa-ps-latest#-regionname) parameter or using [Power Platform API](https://learn.microsoft.com/en-us/rest/api/power-platform/).
  
 
 ## Content
