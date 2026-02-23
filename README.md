@@ -29,13 +29,23 @@ Traffic flows entirely through:
 - Securing it with a private endpoint
 - Enabling Power Platform to reach it through a delegated VNet
 
-
-
 ## Pre-requisites / What you will need
 - Visual Studio Code (optional, to create and deploy our sample MCP server)
 - A Power Platform Environment
 - An Azure Subscription in the same tenant as your Power Platform
 - PowerShell (optional - to help troubleshoot)
+
+## Before you start
+1. [Create a Power Platform Environment](https://learn.microsoft.com/en-us/power-platform/admin/create-environment) if you don't already have one. You can create Production, Sandbox or Developer environments. Vnet is **not supported** for Trial environments.
+2. Enable Managed Environment feature for your environment.
+
+> [!IMPORTANT]
+> Before you start, make sure you have identified which Azure Region your Power Platform Environment is in.
+> We can do this using PowerShell [Get-EnvironmentRegion](https://learn.microsoft.com/en-us/powershell/module/microsoft.powerplatform.enterprisepolicies/get-environmentregion)
+> Alternately, you can go to the [maker portal](https://make.powerapps.com), navigate to "Azure Synapse Link" (or click on "More", "Discover All" and look for "Azyre Synapse Link" if it is not pinned on your navigation bar). Click on "New Link" and this will show your current Azure region.
+> <img width="875" height="149" alt="image" src="https://github.com/user-attachments/assets/62670038-bdd5-4192-95ba-b34996cd2f51" />
+> Understand that Power Platform Environment can be in a **geography** that is mapped to one or more **Azure Regions**. See [here](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview#supported-regions) for a list of mapped regions. If you ever need to move your existing Environment to another region, contact your Microsoft Support for assistance.
+ 
 
 ## Content
 [Introduction (this page)](readme.md)
