@@ -52,4 +52,5 @@ Traffic flows entirely through:
  
 
 ## Content
-[Introduction (this page)](readme.md)
+- [Introduction (this page)](readme.md)
+- [Create and deploy a simple MCP server on Azure Function and testing in Copilot Studio](MCPServer.md)
