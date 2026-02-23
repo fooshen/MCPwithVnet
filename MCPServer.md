@@ -110,7 +110,7 @@ When prompted, select **"Allow"**, otherwise the call is blocked.
 <img width="304" height="310" alt="image" src="https://github.com/user-attachments/assets/782acba3-80be-4de1-951c-cd2f1e7d1abe" />
 
 11. Now let's deploy into Azure Function. Press CTRL+SHIFT+P or F1 (or simply click on the search/command bar at the top and click "Show and Run Commands"). Select **"Azure Functions: Deploy to Function Apps...".**
-12. Select **"+ Create new function app..."** (or use existing one, but you must ensure the function app is in the same region as your Power Platform Environment). Enter a name for your Function App.
+12. Select **"+ Create new function app..."** (or use existing one, but you must ensure the function app is in the [same region as your Power Platform Environment](readme.md#). Enter a name for your Function App.
 
 
 
