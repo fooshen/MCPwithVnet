@@ -109,8 +109,39 @@ When prompted, select **"Allow"**, otherwise the call is blocked.
 
 <img width="304" height="310" alt="image" src="https://github.com/user-attachments/assets/782acba3-80be-4de1-951c-cd2f1e7d1abe" />
 
-11. Now let's deploy into Azure Function. Press CTRL+SHIFT+P or F1 (or simply click on the search/command bar at the top and click "Show and Run Commands"). Select **"Azure Functions: Deploy to Function Apps...".**
-12. Select **"+ Create new function app..."** (or use existing one, but you must ensure the function app is in the [same region as your Power Platform Environment](readme.md#). Enter a name for your Function App.
+## Deploy to Function Apps ##
+11. Now let's deploy to Azure Function. Press CTRL+SHIFT+P or F1 (or simply click on the search/command bar at the top and click "Show and Run Commands"). Select **"Azure Functions: Deploy to Function Apps...".**
+12. Select **"+ Create new function app..."** (or use existing one, but you must ensure the function app is in the [same region as your Power Platform Environment](README.md#before-you-start). Enter a name for your Function App (example, "HelloWorldMCPDemo"). If creating a new Function App, please select the same region that your Power Platform Environment is in. In my example, I'm on Australia Southeast.
+<img width="290" height="236" alt="image" src="https://github.com/user-attachments/assets/92759ef4-e862-41d9-87b9-95dbc32296b1" />.
+
+13. Select **".Net 8 Isolated"**, and **Secrets** for resource authentication type (it will need to communicate with Azure Blob Storage and optionally App Insights).
+
+> [!IMPORTANT]
+> Do not create Azure Function on Consumption plan - use Flex Consumption or any other plans. Consumption Plan does not support Private Link and will not be useful in our exercise here. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale#networking-features) on the networking features supported by the different plans.
+>
+
+14. In your Azure portal, you can check the Function app is available and is running. Take note of the domain URL and the region.
+<img width="791" height="437" alt="image" src="https://github.com/user-attachments/assets/024a763b-812c-42ed-a7f3-5caa1579af85" />
+
+## Test in Copilot Studio ##
+15. Next, we will test the MCP tool in Copilot Studio. Make sure you are in the correct Environment - the Environment that we will set up VNet connectivity. In a test agent (create new one if you are not using an existing agent), scroll down to "Tools" and click **"+ Add Tool"**.
+<img width="651" height="226" alt="image" src="https://github.com/user-attachments/assets/efc5e60c-181f-4be3-a0e6-802769fad134" />
+
+16. Select **"Model Context Protocol"** in the "Add Tool" dialog.
+17. Enter a server name and description. For Server URL, enter the function app's URL as such: https://<functionapp>/runtime/webhooks/mcp. You can review the mcp.json file in Visual Studio code to see the url.
+<img width="1112" height="1042" alt="image" src="https://github.com/user-attachments/assets/257e789c-d58d-4d44-a759-a145d7d54721" />
+
+> [!NOTE]
+> The Azure Function MCP Extension project will always create this as http-streamable. SSE protocol has been deprecated for MCPs.
+>
+
+17. Next, you will be asked to create a connection. Click on **"Create new connection"**, and then **Add and configure**".
+<img width="1518" height="1033" alt="image" src="https://github.com/user-attachments/assets/8f7aae7b-08e3-4cef-a97f-a4b54a2d0e16" />
+
+18. By now, if you head into https://make.powerapps.com and navigate to **Custom Connectors**, you will see the MCP tool showing up as a Custom Connector.
+<img width="1586" height="367" alt="image" src="https://github.com/user-attachments/assets/5d0b9d08-7f8a-40b8-a8e3-85c3cb47a651" />
+
+
 
 
 
