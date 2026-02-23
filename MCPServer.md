@@ -182,7 +182,7 @@ public class SayHello
 
     <img width="903" height="269" alt="image" src="https://github.com/user-attachments/assets/3b0074d9-0ec3-4560-bcbb-05bb2fcf3baa" />
 
-
+33. You can now proceed to the next guide on [setting up and connecting Power Platform to a Virtual Network](VNET.md).
 
 
 
