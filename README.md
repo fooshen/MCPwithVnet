@@ -54,3 +54,5 @@ Traffic flows entirely through:
 ## Content
 - [Introduction (this page)](readme.md)
 - [Part 1 :Create and deploy a simple MCP server on Azure Function and testing in Copilot Studio](MCPServer.md)
+- [Part 2: Setting up and connecting Power Platform to VNet](VNET.md)
+- 
