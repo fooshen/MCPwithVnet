@@ -105,7 +105,8 @@ public class SayHello
     
 <img width="452" height="169" alt="image" src="https://github.com/user-attachments/assets/fb89bc72-4f3b-46ef-a23d-5682839bcb90" />
 
-When prompted, select **"Allow"**
+When prompted, select **"Allow"**, otherwise the call is blocked.
+
 <img width="304" height="310" alt="image" src="https://github.com/user-attachments/assets/782acba3-80be-4de1-951c-cd2f1e7d1abe" />
 
 11. Now let's deploy into Azure Function. 
