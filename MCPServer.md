@@ -12,8 +12,10 @@ For examples on writing MCP Servers on Azure Functions, you may refer to this ar
 1. [Install Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 2. In Visual Studio Code, press Ctrl+Shift+P or F1, and select Azure Functions: Create New Project
    <img width="1063" height="201" alt="image" src="https://github.com/user-attachments/assets/5d0278b7-8a95-4b3d-b91b-8ad8a96f288f" />
+   
 3. Create a new folder "HelloWorldMCPServer".
 4. Select "C#", then ".NET 8.0 Isolated LTS" for runtime, and "McpToolTrigger" for project template.
+
    <img width="1361" height="261" alt="image" src="https://github.com/user-attachments/assets/eb3be78a-13de-4721-b540-7e524db9db55" />
    
 > [!NOTE]
@@ -91,15 +93,21 @@ public class SayHello
 > [!NOTE]
 > The default function returns a raw string. We need to change this to return a json object instead. Copilot Studio uses diff-style renderer for raw strings. If you ever see MCP Tool responses in Copilot Studio with strikethrough format like "Hello, this is MCP tool. ~Time now is {now}~", it is because the tool is returning raw string. We should avoid returning raw strings in our MCP tools. 
 
-8. We are now ready for a quick, local test - Hit F5. When prompted, select **"Use Local Emulator"** - this will set up Azurite as a local emulator for Azure Blob Storage that our Function app will use.
+8. We are now ready for a quick, local test - Hit F5. When prompted, select **"Use Local Emulator"** - this will set up Azurite as a local emulator for Azure Blob Storage that our Function app will use. If you get a "Failed to verify 'AzureWebJobStorage' connection specified in "local.Settings.json", click **"Run Emulator"** to start it. Wait for the build to complete.
+   
 <img width="570" height="123" alt="image" src="https://github.com/user-attachments/assets/8d299c61-20a8-4cdd-ae9d-accd003b1123" />
-If you get a "Failed to verify 'AzureWebJobStorage' connection specified in "local.Settings.json", click **"Run Emulator"** to start it. Wait for the build to complete.
+
 9. You should now see your local server running:
+
 <img width="752" height="58" alt="image" src="https://github.com/user-attachments/assets/018d78da-7238-4f00-852a-3c3fc1c28ba0" />
+
 10. We can now do some simple testing locally. In Visual Studio Code's GitHub Copilot chat, type **use #SayHello** and pick the SayHello tool, and add a parameter as the user name.
+    
 <img width="452" height="169" alt="image" src="https://github.com/user-attachments/assets/fb89bc72-4f3b-46ef-a23d-5682839bcb90" />
+
 When prompted, select **"Allow"**
 <img width="304" height="310" alt="image" src="https://github.com/user-attachments/assets/782acba3-80be-4de1-951c-cd2f1e7d1abe" />
+
 11. Now let's deploy into Azure Function. 
 
 
