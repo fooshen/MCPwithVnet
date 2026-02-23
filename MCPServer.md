@@ -51,7 +51,7 @@ For examples on writing MCP Servers on Azure Functions, you may refer to this ar
   }
 }
 ```
-7. This no-frills sample only has one tool - SayHello. It should just simply greet the user with the message "Hello {user}! This is an MCP Tool." Open the file SayHello.cs - I like to add a time stamp in its response.
+7. This no-frills sample only has one tool - SayHello. It should just greet the user with the message "Hello {user}! This is an MCP Tool." Open the file SayHello.cs - I like to add a time stamp in its response. The Azure Function MCP Extension scaffoling means we simply need to decorate using **McpToolTrigger** and **McpToolProperty** attributes. Note the tool name "Say Hello" specified in the attribute.
 ```CSharp
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Extensions.Mcp;
@@ -70,8 +70,8 @@ public class SayHello
 
     [Function(nameof(SayHello))]
     public object Run(
-        [McpToolTrigger(nameof(SayHello), "Responds to the user with a hello message.")] ToolInvocationContext context,
-        [McpToolProperty(nameof(name), "The name of the person to greet.")] string? name
+        [McpToolTrigger("Say Hello", "Responds to the user with a hello message.")] ToolInvocationContext context,
+        [McpToolProperty("Name", "The name of the person to greet.")] string? name
     )
     {
         _logger.LogInformation("C# MCP tool trigger function processed a request.");
@@ -129,17 +129,27 @@ When prompted, select **"Allow"**, otherwise the call is blocked.
 
 16. Select **"Model Context Protocol"** in the "Add Tool" dialog.
 17. Enter a server name and description. For Server URL, enter the function app's URL as such: https://<functionapp>/runtime/webhooks/mcp. You can review the mcp.json file in Visual Studio code to see the url.
-<img width="1112" height="1042" alt="image" src="https://github.com/user-attachments/assets/257e789c-d58d-4d44-a759-a145d7d54721" />
+<img width="1365" height="1080" alt="image" src="https://github.com/user-attachments/assets/9c4c5e36-5e2f-4fee-a77b-02375acc8991" />
 
 > [!NOTE]
-> The Azure Function MCP Extension project will always create this as http-streamable. SSE protocol has been deprecated for MCPs.
+> The Azure Function MCP Extension project will always create this as http-streamable. SSE protocol has been deprecated for MCPs. Azure Functions will use the /mcp path for Streamable HTTP, and /mcp/sse for SSE.
 >
 
 17. Next, you will be asked to create a connection. Click on **"Create new connection"**, and then **Add and configure**".
-<img width="1518" height="1033" alt="image" src="https://github.com/user-attachments/assets/8f7aae7b-08e3-4cef-a97f-a4b54a2d0e16" />
+<img width="1497" height="1093" alt="image" src="https://github.com/user-attachments/assets/28a2211d-20d2-464e-a37c-5774882fc604" />
+
 
 18. By now, if you head into https://make.powerapps.com and navigate to **Custom Connectors**, you will see the MCP tool showing up as a Custom Connector.
 <img width="1586" height="367" alt="image" src="https://github.com/user-attachments/assets/5d0b9d08-7f8a-40b8-a8e3-85c3cb47a651" />
+
+19. Switching to Swagger view, we should see it looking like this - note the x-agentic-protocol attribute.
+<img width="964" height="674" alt="image" src="https://github.com/user-attachments/assets/5a3a8526-664d-411f-97f3-c9546bb08e49" />
+
+20. Back in Copilot Studio, we can see the tool "Say Hello" discovered.
+<img width="890" height="257" alt="image" src="https://github.com/user-attachments/assets/c0d9c471-1288-4905-a6f3-95a64eea0e4e" />
+
+21. Let's use the Test Pane and give it a prompt to greet a user name using the Say Hello tool. Note that you may get prompted to select the connection that has just been created, or if the connection is stale.
+<img width="709" height="845" alt="image" src="https://github.com/user-attachments/assets/9e5d0e7b-493e-4f07-a89f-4fc6ab27eb4c" />
 
 
 
