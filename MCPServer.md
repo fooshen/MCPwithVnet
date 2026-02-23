@@ -1,4 +1,4 @@
-# Deploying a sample MCP server and testing in Copilot Studio
+# Create and deploy a simple MCP server on Azure Function and testing in Copilot Studio
 In this example, we will build and deploy a very basic, no-frills HelloWorld MCP server using C# into Azure Function using Visual Studio Code. 
 You can skip this part if you already have an MCP server to work with, or are using other samples - this is not about writing an MCP server, but this is intended for an easy follow through if you don't already have one and wanted to quickly get to the VNet part.
 For examples on writing MCP Servers on Azure Functions, you may refer to this article: [Tutorial: Host an MCP server on Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-mcp-tutorial?tabs=mcp-extension&pivots=programming-language-csharp). View more examples [here](https://github.com/microsoft/mcp-dotnet-samples).
