@@ -25,3 +25,19 @@ Now that we have built and deployed an MCP Server in Azure Function and connecte
 
 6. Next, we head back into our HelloWorldMCPDemo Azure Function app. Under Settings -> Network, click on the private endpoints to create one. 
    <img width="1001" height="520" alt="image" src="https://github.com/user-attachments/assets/b6290a29-ea57-4cf9-a55a-77cd19836303" />
+
+7. Click "+ Add", you may use either Express or Advanced method - give it a friendly name, and select the Vnet that we have created in Step 3, and the subnet created in Step 5. **DO NOT** use the subnet that has been delegated for Power Platform.
+   <img width="788" height="288" alt="image" src="https://github.com/user-attachments/assets/8edcb20a-848d-4fe5-88cb-7a6081f81eb2" />
+
+8. Our MCP Server function app now has a private end point inside this vnet. Click on the Private endpoint name.
+   <img width="719" height="303" alt="image" src="https://github.com/user-attachments/assets/b2b2c74b-32cd-4e64-9aef-18a04332b12c" />
+
+9. In the Private endpoint settings, go to **"DNS configuration"**. Note that we now have a Private DNS zone created. Click on the private DNS Zone ("privatelink.azurewebsites.net").
+    <img width="1038" height="556" alt="image" src="https://github.com/user-attachments/assets/4090c734-bf70-49e3-b20b-91f7f7f0229d" />
+
+10. In the Private DNS Zone, under **DNS Management** click on **"Virtual Network Links"**. We will need to link the vnet in our other region to this zone. Click **"+ Add"**. 
+    <img width="999" height="341" alt="image" src="https://github.com/user-attachments/assets/69c679f0-f8cb-4845-80a7-b35d7748d028" />
+
+11. Provide a friendly name for the link, and select 
+
+
