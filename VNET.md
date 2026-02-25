@@ -68,7 +68,7 @@ New-SubnetInjectionEnterprisePolicy -SubscriptionId "YourAzureSubscriptionId" -R
 > [!NOTE]
 > On the parameters for the PowerShell command **New-SubnetInjectionEnterprisePolicy"**
 >
-> - SubscriptionId - this will be a GUID value as copied in Step 17 above.
+> - SubscriptionId - this will be a GUID value as copied in the previous steps.
 > - ResourceGroupName - this will be the Azure Resource Group that house your Vnet, it will be a string value of its display name.
 > - PolicyName - this will be a string value, a given name for your policy (eg PowerPlatformVNetPolicyTest).
 > - VirtualNetworkId, VirutalNetworkId2 - this will be the resourceId for your VNet (the first one would be the VNet that is in the same region as your Power Platform Environment).
