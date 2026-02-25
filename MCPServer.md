@@ -122,7 +122,7 @@ public class SayHello
 13. Select **".Net 8 Isolated"**, and **Secrets** for resource authentication type (it will need to communicate with Azure Blob Storage and optionally App Insights).
 
    > [!IMPORTANT]
-   > Do not create Azure Function on Consumption plan - use Flex Consumption or any other plans. Consumption Plan does not support Private Link and will not be useful in our exercise here. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale#networking-features) on the networking features supported by the different plans.
+   > Do not create Azure Function on Consumption plan - use Flex Consumption or any other plans. Consumption Plan does not support Virtual Network integration and will not be useful in our exercise here. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale#networking-features) on the networking features supported by the different plans.
    >
 
 14. In your Azure portal, you can check the Function app is available and is running. Take note of the domain URL and the region.
