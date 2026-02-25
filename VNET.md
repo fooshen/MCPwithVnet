@@ -7,12 +7,12 @@ Now that we have built and deployed an MCP Server in Azure Function and connecte
    
    <img width="200" alt="image" src="https://github.com/user-attachments/assets/9d2300b6-6a40-4df1-8d88-518e0d1989d4" />
 
-3. Give it a name and select the region that corresponds to your Power Platform Environment - see [here](README.md#before-you-start) (eg mydemo-vnet-australiasoutheast). You may leave everything else as default - for a bare minimal example, we don't need Azure Bastion, Firewall, etc. If your Power Platform geography has more than one region, you need to create another vnet - one for each region. Refer [here](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview#supported-regions) to see which Azure region your Power Platform geography is mapped with. In my example, as Environments in Australia are mapped to **australiaeast** and **australiasoutheast**, I will need to create two VNet - one for each region.
+2. Give it a name and select the region that corresponds to your Power Platform Environment - see [here](README.md#before-you-start) (eg mydemo-vnet-australiasoutheast). You may leave everything else as default - for a bare minimal example, we don't need Azure Bastion, Firewall, etc. If your Power Platform geography has more than one region, you need to create another vnet - one for each region. Refer [here](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview#supported-regions) to see which Azure region your Power Platform geography is mapped with. In my example, as Environments in Australia are mapped to **australiaeast** and **australiasoutheast**, I will need to create two VNet - one for each region.
    
    <img width="900" alt="image" src="https://github.com/user-attachments/assets/918a9948-4ff0-4b14-be14-a8a9973f5b8f" />
 
 
-5. In the VNet resources, you will need to create a subnet that will be delegated for Power Platform. In the primary Vnet (the one that is on the same region as your Power Platform Environment - this my example, this is in "australiasoutheast"), we need at least **two** subnets. We will need Subnet1 (in this example below: "fsdemomcp-subnet") for our MCP Server in Azure Function, and another Subnet2 ("pp-vnet") for Power Platform to use.
+3. In the VNet resources, you will need to create a subnet that will be delegated for Power Platform. In the primary Vnet (the one that is on the same region as your Power Platform Environment - this my example, this is in "australiasoutheast"), we need at least **two** subnets. We will need Subnet1 (in this example below: "fsdemomcp-subnet") for our MCP Server in Azure Function, and another Subnet2 ("pp-vnet") for Power Platform to use.
    
    <img width="808" height="370" alt="image" src="https://github.com/user-attachments/assets/26ba89b9-77d9-445f-bcb4-964ea05e56cb" />
 
@@ -21,45 +21,45 @@ Now that we have built and deployed an MCP Server in Azure Function and connecte
 > Subnet size matters! Refer [here](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview#estimating-subnet-size-for-power-platform-environments) for a guide on estimating subnet sizes for your vnet. Rule of thumb: Plan for 25-30 IP addresses for typical production environment. Do not share the Production Environment's Vnet policy with other environments.
 >
 
-5. This is a very important step - for the Power Platform delegated subnet, it must not be shared or used by other purposes. In the second subnet "pp-vnet", set **"Subnet Delegation"** to **"Microsoft.PowerPlatform/enterprisePolicies"**. This allows Power Platform to manage this subnet - and at runtime, it will run containers in this delegated subnet, which in turn will be able to connect to resources within the same vnet.
+4. This is a very important step - for the Power Platform delegated subnet, it must not be shared or used by other purposes. In the second subnet "pp-vnet", set **"Subnet Delegation"** to **"Microsoft.PowerPlatform/enterprisePolicies"**. This allows Power Platform to manage this subnet - and at runtime, it will run containers in this delegated subnet, which in turn will be able to connect to resources within the same vnet.
    
    <img width="800" alt="image" src="https://github.com/user-attachments/assets/1d37ba8b-1639-4150-bd8d-d23d3c5a3893" />
 
-7. Next, we head back into our HelloWorldMCPDemo Azure Function app. Under Settings -> Network, click on the private endpoints to create one.
+5. Next, we head back into our HelloWorldMCPDemo Azure Function app. Under Settings -> Network, click on the private endpoints to create one.
    
    <img width="1001" height="520" alt="image" src="https://github.com/user-attachments/assets/b6290a29-ea57-4cf9-a55a-77cd19836303" />
 
-9. Click "+ Add", you may use either Express or Advanced method - give it a friendly name, and select the Vnet that we have created in Step 3, and the subnet created in Step 5. **DO NOT** use the subnet that has been delegated for Power Platform.
+6. Click "+ Add", you may use either Express or Advanced method - give it a friendly name, and select the Vnet that we have created in Step 3, and the subnet created in Step 5. **DO NOT** use the subnet that has been delegated for Power Platform.
     
    <img width="788" height="288" alt="image" src="https://github.com/user-attachments/assets/8edcb20a-848d-4fe5-88cb-7a6081f81eb2" />
 
-11. Our MCP Server function app now has a private end point inside this vnet. Click on the Private endpoint name.
+7. Our MCP Server function app now has a private end point inside this vnet. Click on the Private endpoint name.
     
    <img width="719" height="303" alt="image" src="https://github.com/user-attachments/assets/b2b2c74b-32cd-4e64-9aef-18a04332b12c" />
 
-13. In the Private endpoint settings, go to **"DNS configuration"**. Note that we now have a Private DNS zone created. Click on the private DNS Zone ("privatelink.azurewebsites.net").
+8. In the Private endpoint settings, go to **"DNS configuration"**. Note that we now have a Private DNS zone created. Click on the private DNS Zone ("privatelink.azurewebsites.net").
     
     <img width="1038" height="556" alt="image" src="https://github.com/user-attachments/assets/4090c734-bf70-49e3-b20b-91f7f7f0229d" />
 
-15. In the Private DNS Zone, under **DNS Management** click on **"Virtual Network Links"**. We will need to link the vnet in our other region to this zone. Click **"+ Add"**.
+9. In the Private DNS Zone, under **DNS Management** click on **"Virtual Network Links"**. We will need to link the vnet in our other region to this zone. Click **"+ Add"**.
     
     <img width="999" height="341" alt="image" src="https://github.com/user-attachments/assets/69c679f0-f8cb-4845-80a7-b35d7748d028" />
 
-17. Provide a friendly name for the link, and select the other subnet - recall that in this example my Power Platform Environment is in Australia geography, which has two Azure region - australiaeast and australiasoutheast. I have created two vnets in each region - the function app and its private end point, the private DNS Zone is in southeast (matching my Environment's region). We will link the subnet in australiaeast to this Private DNS Zone. This is referenced [here](https://learn.microsoft.com/en-us/troubleshoot/power-platform/administration/virtual-network?toc=%2Fpower-platform%2Fadmin%2Ftoc.json&bc=%2Fpower-platform%2Fbreadcrumb%2Ftoc.json#azure-resource-with-a-private-endpoint).
+10. Provide a friendly name for the link, and select the other subnet - recall that in this example my Power Platform Environment is in Australia geography, which has two Azure region - australiaeast and australiasoutheast. I have created two vnets in each region - the function app and its private end point, the private DNS Zone is in southeast (matching my Environment's region). We will link the subnet in australiaeast to this Private DNS Zone. This is referenced [here](https://learn.microsoft.com/en-us/troubleshoot/power-platform/administration/virtual-network?toc=%2Fpower-platform%2Fadmin%2Ftoc.json&bc=%2Fpower-platform%2Fbreadcrumb%2Ftoc.json#azure-resource-with-a-private-endpoint).
     
     <img width="800" height="668" alt="image" src="https://github.com/user-attachments/assets/4145ee69-9e59-4544-9f06-394c95aa6f06" />
 
-18. Now we have a private end point enabled for our MCP Server in Azure Function, we will be able to reach this within the same VNet. We can test this quickly by using a VM or a Container in the same VNet and use nslookup against your Function app domain. Example below shows an nslookup from a Container within the same vnet. (Note that Server:Unknown here simply means we don't have a PTR record, and this is using Azure DNS). We can see the nslookup resolves to 10.2.2.7 in my example here, which corresponds to the private end point for the MCP Server.
+11. Now we have a private end point enabled for our MCP Server in Azure Function, we will be able to reach this within the same VNet. We can test this quickly by using a VM or a Container in the same VNet and use nslookup against your Function app domain. Example below shows an nslookup from a Container within the same vnet. (Note that Server:Unknown here simply means we don't have a PTR record, and this is using Azure DNS). We can see the nslookup resolves to 10.2.2.7 in my example here, which corresponds to the private end point for the MCP Server.
     
     <img width="640" height="493" alt="image" src="https://github.com/user-attachments/assets/509fc363-ea81-4079-a1a5-95ed8d6aecd8" />
     <img width="656" height="344" alt="image" src="https://github.com/user-attachments/assets/e5071f7f-2c11-4f43-a37f-c0c9c1fdae6c" />
 
-19. Next step is to create an Enteprise Policy and associate our Power Platform to this Policy. For this step, you will need to grab your Azure Subscription ID (GUID), the resource group name where your VNet is created in, and the Resource ID for all the Vnets (one per each region). In the Vnet resource, you can copy the Subscription ID and click on JSON View to copy the Resource ID.
+12. Next step is to create an Enteprise Policy and associate our Power Platform to this Policy. For this step, you will need to grab your Azure Subscription ID (GUID), the resource group name where your VNet is created in, and the Resource ID for all the Vnets (one per each region). In the Vnet resource, you can copy the Subscription ID and click on JSON View to copy the Resource ID.
     
     <img width="900" height="220" alt="image" src="https://github.com/user-attachments/assets/a7e0741b-6fdb-411b-a6e0-e15c00b8038e" />
     <img width="785" height="237" alt="image" src="https://github.com/user-attachments/assets/024a3f54-5e77-49da-8ef4-564637b5d494" />
 
-20. Use PowerShell and run the following command:
+13. Use PowerShell and run the following command:
 ```PowerShell
 Install-Module Microsoft.PowerPatform.EnterprisePolicies
 Import-Module Microsoft.PowerPlatform.EnterprisePolicies
@@ -68,7 +68,7 @@ New-SubnetInjectionEnterprisePolicy -SubscriptionId "YourAzureSubscriptionId" -R
 > [!NOTE]
 > On the parameters for the PowerShell command **New-SubnetInjectionEnterprisePolicy"**
 >
-> - SubscriptionId - this will be a GUID value as copied in Step 13 above.
+> - SubscriptionId - this will be a GUID value as copied in Step 17 above.
 > - ResourceGroupName - this will be the Azure Resource Group that house your Vnet, it will be a string value of its display name.
 > - PolicyName - this will be a string value, a given name for your policy (eg PowerPlatformVNetPolicyTest).
 > - VirtualNetworkId, VirutalNetworkId2 - this will be the resourceId for your VNet (the first one would be the VNet that is in the same region as your Power Platform Environment).
