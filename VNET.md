@@ -114,12 +114,13 @@ Give it a few seconds. Once the Environment has been assigned successfully, refr
     
     <img width="800" height="505" alt="image" src="https://github.com/user-attachments/assets/48a6e9fe-4b90-4278-b0bb-f29f35c6c654" />
 
-20. If you head back into the Function App for the MCP Server, we can confirm this has public network access disabled, and it is using a private end point!
+19. If you head back into the Function App for the MCP Server, we can confirm this has public network access disabled, and it is using a private end point!
     
     <img width="900" height="404" alt="image" src="https://github.com/user-attachments/assets/d5e362a6-8801-434c-a7b4-52f53036efe9" />
 
+20. Be aware that once you have assigned your Power Platform Environment to an Enteprrise Policy, all supported connectors will be using the delegated VNet. If you need to connect to internet resources as well using the same set of connectors in the same environment, you will need to configurea additional resources for your Vnet - including your Network Security Group and NAT Gateway. Please refer to the [Virtual Network support white paper](https://learn.microsoft.com/en-us/power-platform/admin/virtual-network-support-whitepaper#configuration-considerations) for more information.
 
-    
+References:
 
     
  
