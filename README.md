@@ -9,7 +9,7 @@ Microsoft Copilot Studio is built directly on the Microsoft Power Platform, whic
 - [Troubleshooting tips](https://learn.microsoft.com/en-us/troubleshoot/power-platform/administration/virtual-network)
 
 ## Why This Matters
-Modern agents increasingly need access to internal systems—inventory, finance, operations, knowledge bases, line‑of‑business APIs. But these systems often live inside VNets,  behind private endpoints. Exposing them publicly is not an option.
+Modern agents increasingly need access to internal systems—inventory, finance, operations, line‑of‑business APIs. But these systems often live inside VNets,  behind private endpoints. Exposing them publicly is not an option.
 
 By placing the MCP server behind a private endpoint and using Power Platform’s VNet support, we get:
 
