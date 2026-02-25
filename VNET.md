@@ -75,7 +75,7 @@ New-SubnetInjectionEnterprisePolicy -SubscriptionId "YourAzureSubscriptionId" -R
 > - SubnetName, SubnetName2 - the name of the subnet that has been delegated for Power Platform from step 5 above in each VNet that corresponds to your regions.
 > - (Optional) - if you have multiple subscriptions with multiple logins like me, you will need to add **-ForceAuth** parameter to force a picker. 
 
-15. Run **Get-SubnetInjectionEnterprisePolicy -SubscriptionId "YourSubscriptionId" (optional -ForceAuth) to check if everything looks good. You can copy the ResourceId for your Enterprise Policy.
+15. Run **Get-SubnetInjectionEnterprisePolicy** -SubscriptionId "YourSubscriptionId" (optional -ForceAuth) to check if everything looks good. You can copy the ResourceId for your Enterprise Policy.
     
     <img width="856" height="235" alt="image" src="https://github.com/user-attachments/assets/91632321-c2c8-412b-8bf0-3f92b944eee8" />
 
