@@ -150,15 +150,15 @@ public class SayHello
 
 19. By now, if you head into https://make.powerapps.com and navigate to **Custom Connectors**, you will see the MCP tool showing up as a Custom Connector.
 
-    <img width="800" alt="image" src="https://github.com/user-attachments/assets/5d0b9d08-7f8a-40b8-a8e3-85c3cb47a651" />
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/5d0b9d08-7f8a-40b8-a8e3-85c3cb47a651" />
 
 21. Switching to Swagger view, we should see it looking like this - note the x-agentic-protocol attribute.
 
-    <img width="500" alt="image" src="https://github.com/user-attachments/assets/5a3a8526-664d-411f-97f3-c9546bb08e49" />
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/5a3a8526-664d-411f-97f3-c9546bb08e49" />
 
 23. Back in Copilot Studio, we can see the tool "Say Hello" discovered.
 
-    <img width="500" alt="image" src="https://github.com/user-attachments/assets/c0d9c471-1288-4905-a6f3-95a64eea0e4e" />
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/c0d9c471-1288-4905-a6f3-95a64eea0e4e" />
 
 25. Let's use the Test Pane and give it a prompt to greet a user name using the Say Hello tool. Note that you may get prompted to select the connection that has just been created, or if the connection is stale.
 
@@ -168,7 +168,7 @@ public class SayHello
 
 28. Back in the Azure Function app, go to Settings > Networking. We can see that it has Public network access enabled.
 
-    <img width="800" alt="image" src="https://github.com/user-attachments/assets/2099c205-d87d-455a-b689-62e222331f75" />
+    <img width="900" alt="image" src="https://github.com/user-attachments/assets/2099c205-d87d-455a-b689-62e222331f75" />
 
 30. Click on the Public network access setting "Enabled with no access restrictions" to change this to **Disabled** and click **Save**. You will need to confirm via a checkbox to agree to the change. Now, our function app is no longer accessible over the public network.
    
