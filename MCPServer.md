@@ -178,7 +178,7 @@ public class SayHello
 
     <img width="1012" height="412" alt="image" src="https://github.com/user-attachments/assets/8b9a2fdd-5f43-424e-bf08-172965318ff2" />
 
-32. Back in Copilot Studio, if we refresh the tool list, you will now see that Copilot Studio is unable to retrieve the tool list with an error "Connector request failed". Testing on the chat test pane will give a generic Hello rather than a response from the MCP tool. This proofs that we can no longer connect to the MCP server as we have disabled public network access. 
+32. Back in Copilot Studio, if we refresh the tool list, you will now see that Copilot Studio is unable to retrieve the tool list with an error "Connector request failed". Testing on the chat test pane will give a generic Hello rather than a response from the MCP tool. This confirms that we can no longer connect to the MCP server as we have disabled public network access. 
 
     <img width="903" height="269" alt="image" src="https://github.com/user-attachments/assets/3b0074d9-0ec3-4560-bcbb-05bb2fcf3baa" />
 
