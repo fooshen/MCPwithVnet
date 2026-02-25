@@ -33,7 +33,7 @@ Traffic flows entirely through:
 - Visual Studio Code (optional, to create and deploy our sample MCP server)
 - A Power Platform Environment
 - An Azure Subscription in the same tenant as your Power Platform
-- PowerShell (optional - to help troubleshoot)
+- PowerShell
 
 ## Before you start
 1. [Create a Power Platform Environment](https://learn.microsoft.com/en-us/power-platform/admin/create-environment) if you don't already have one. You can create Production, Sandbox or Developer environments. Vnet is **not supported** for Trial environments.
