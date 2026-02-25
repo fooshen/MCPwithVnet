@@ -121,11 +121,7 @@ Give it a few seconds. Once the Environment has been assigned successfully, refr
 20. Be aware that once you have assigned your Power Platform Environment to an Enteprrise Policy, all supported connectors will be using the delegated VNet. If you need to connect to internet resources as well using the same set of connectors in the same environment, you will need to configurea additional resources for your Vnet - including your Network Security Group and NAT Gateway. Please refer to the [Virtual Network support white paper](https://learn.microsoft.com/en-us/power-platform/admin/virtual-network-support-whitepaper#configuration-considerations) for more information.
 
 References:
-
-    
- 
-    
-
-
-
-
+- [Power Platform Virtual Network support Overview](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview)
+- [Power Platform Virtual Network support Whitepaper](https://learn.microsoft.com/en-us/power-platform/admin/virtual-network-support-whitepaper)
+- [Power Platform Virtual Network support Set Up Guide](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-setup-configure)
+- [Troubleshooting tips](https://learn.microsoft.com/en-us/troubleshoot/power-platform/administration/virtual-network)
