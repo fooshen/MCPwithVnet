@@ -61,7 +61,7 @@ Now that we have built and deployed an MCP Server in Azure Function and connecte
 
 13. Use PowerShell and run the following command:
 ```PowerShell
-Install-Module Microsoft.PowerPatform.EnterprisePolicies
+Install-Module Microsoft.PowerPlatform.EnterprisePolicies
 Import-Module Microsoft.PowerPlatform.EnterprisePolicies
 New-SubnetInjectionEnterprisePolicy -SubscriptionId "YourAzureSubscriptionId" -ResourceGroupName "YourAzureResourceGroupName" -PolicyName "giveThePolicyAName" -PolicyLocation "australia" -VirtualNetworkId "resourceIdForVNet1" -SubnetName "pp-vnet" -VirtualNetworkId2 "ResourceIdForVNet2" -SubnetName2 "pp-vnet"
 ```
