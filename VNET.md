@@ -47,7 +47,7 @@ Now that we have built and deployed an MCP Server in Azure Function and connecte
 
 10. Provide a friendly name for the link, and select the other subnet - recall that in this example my Power Platform Environment is in Australia geography, which has two Azure region - australiaeast and australiasoutheast. I have created two vnets in each region - the function app and its private end point, the private DNS Zone is in southeast (matching my Environment's region). We will link the subnet in australiaeast to this Private DNS Zone. This is referenced [here](https://learn.microsoft.com/en-us/troubleshoot/power-platform/administration/virtual-network?toc=%2Fpower-platform%2Fadmin%2Ftoc.json&bc=%2Fpower-platform%2Fbreadcrumb%2Ftoc.json#azure-resource-with-a-private-endpoint).
     
-    <img width="800" height="668" alt="image" src="https://github.com/user-attachments/assets/4145ee69-9e59-4544-9f06-394c95aa6f06" />
+    <img width="800" height="450" alt="image" src="https://github.com/user-attachments/assets/4145ee69-9e59-4544-9f06-394c95aa6f06" />
 
 11. Now we have a private end point enabled for our MCP Server in Azure Function, we will be able to reach this within the same VNet. We can test this quickly by using a VM or a Container in the same VNet and use nslookup against your Function app domain. Example below shows an nslookup from a Container within the same vnet. (Note that Server:Unknown here simply means we don't have a PTR record, and this is using Azure DNS). We can see the nslookup resolves to 10.2.2.7 in my example here, which corresponds to the private end point for the MCP Server.
     
@@ -92,7 +92,7 @@ Enable-SubnetInjection -EnvironmentId "YourEnvironmentId" -PolicyArmId "yourEnte
 
 To remove the environment, use **Disable-SubnetInjection**
 ```PowerShell
-Disable-SubnetInjection -ENvironmentId "YourEnvironmentId"
+Disable-SubnetInjection -EnvironmentId "YourEnvironmentId"
 ```
 
 If using PPAC - navigate to "Security" -> "Data and privacy" -> "Azure Virtual Network polices".
@@ -100,13 +100,13 @@ If using PPAC - navigate to "Security" -> "Data and privacy" -> "Azure Virtual N
 
 Select the desired Power Platform and click "Next". We should now see the Enterprise Policy name we have just created available to be assigned.
 
-<img width="900" height="421" alt="image" src="https://github.com/user-attachments/assets/c8983add-2ad9-4028-8b6a-428123424b80" />
+<img width="800" height="220" alt="image" src="https://github.com/user-attachments/assets/c8983add-2ad9-4028-8b6a-428123424b80" />
 
 Give it a few seconds. Once the Environment has been assigned successfully, refresh the page and you should see the Policy name associated to the Environment.
 
-<img width="689" height="250" alt="image" src="https://github.com/user-attachments/assets/ab4bc987-383f-40d7-b487-25c927653540" />
+<img width="689" height="220" alt="image" src="https://github.com/user-attachments/assets/ab4bc987-383f-40d7-b487-25c927653540" />
 
-17. If your MCP tool was created ~before~ the Enterprise policy was assigned to the Environment, you may need to re-save the underlying custom connector. Go to your Custom Connector, edit and click "Update custom connector".
+17. If your MCP tool was created **before** the Enterprise policy was assigned to the Environment, you may need to re-save the underlying custom connector. Go to your Custom Connector, edit and click "Update custom connector".
     
     <img width="818" height="225" alt="image" src="https://github.com/user-attachments/assets/487f1663-07eb-4696-bfeb-81b6b693cfa5" />
 
